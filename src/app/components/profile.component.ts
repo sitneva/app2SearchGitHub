@@ -5,12 +5,12 @@ import {GithubService} from '../services/github.service';
   moduleId: module.id,
   selector: 'app-profile',
   templateUrl: './profile.component.html'
-  //styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+  user: any[];
   constructor(private _gitHubService: GithubService){
     this._gitHubService.getUser().subscribe(user => (
-      console.log(user)
+      this.user = user
     ));
   }
 }
