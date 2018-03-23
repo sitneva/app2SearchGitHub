@@ -9,7 +9,7 @@ export class GithubService{
   private client_secret = '848ec7e04c3d3ee1a6c9e834b6f2ea57c555be87';
 
   constructor(private _http: Http) {
-    console.log('Git hub ready');
+
     this.username = 'sitneva';
   }
 
@@ -20,5 +20,9 @@ export class GithubService{
   getRepos() {
     return this._http.get('http://api.github.com/users/' + this.username + '/repos?client_id' + this.client_id + '?client_secret' + this.client_secret)
       .map(res => res.json());
+  }
+  updateUser(username: string) {
+    this.username = username;
+
   }
 }
